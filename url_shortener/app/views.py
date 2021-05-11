@@ -5,7 +5,8 @@ from .forms import GenerateUrlForm
 from .models import Url
 
 def index(req):
-    return render(req, 'app/index.html')
+    data = GenerateUrlForm
+    return render(req, 'app/index.html', data)
 
 def show(req, id):
     return HttpResponse(f'<h3>Your short url doesn\'t exist yet!</h3>')
