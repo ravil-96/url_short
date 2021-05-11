@@ -1,0 +1,10 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+    <h1>Generate URL</h1>
+    <form method='POST'>
+        {{ form.as_p }}
+        <input type='submit' value="Get your url">
+    </form>
+
+{% endblock content %}
