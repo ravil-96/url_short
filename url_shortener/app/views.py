@@ -13,7 +13,6 @@ def index(req):
             result = {'result': shortUrl}
             return render (req, 'app/newurl.html', result)
 
-
     else :
         data = {'form': GenerateUrlForm}
         return render(req, 'app/index.html', data)
