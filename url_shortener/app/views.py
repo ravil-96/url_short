@@ -22,7 +22,9 @@ def index(req):
         return render(req, 'app/index.html', data)
 
 def show(req, id):
-    print(id, type(id))
-    url = Url.objects.get(short_url=id)
-    print(url)
-    return HttpResponse(f'<h3>Url: {url.original}</h3>')
+    try:
+        url = Url.objects.get(short_url=id)
+        print('look here', url.original)
+        return redirect(url.original)
+    except Url.DoesNotExist:
+        return redirect('app-index')
