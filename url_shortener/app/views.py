@@ -9,8 +9,7 @@ import string
 def index(req):
     if req.method == 'POST':
         form = GenerateUrlForm(req.POST)
-        if form.is_valid() :
-            print(Url.objects.filter(original='bananananana'))
+        if form.is_valid():
             url = form.save(commit=False)
             if url.original[:8] == 'https://' or url.original[:7] == 'http://':
                 pass
@@ -21,9 +20,10 @@ def index(req):
             if len(Url.objects.filter(original = url.original)) > 0:
                 result = {'result': Url.objects.get(original=url.original).short_url}
                 return render (req, 'app/newurl.html', result)
-            random_string = ''.join(random.choice(string.ascii_lowercase) for i in range(5))
+            possible_symbols = string.ascii_lowercase + '1234567890'
+            random_string = ''.join(random.choice(possible_symbols) for i in range(5))
             while len(Url.objects.filter(short_url=random_string)) > 0:
-                random_string = ''.join(random.choice(string.ascii_lowercase) for i in range(5))
+                random_string = ''.join(random.choice(possible_symbols) for i in range(5))
             url.short_url = random_string
             url.save()
             result = {'result': random_string}
@@ -36,7 +36,6 @@ def index(req):
 def show(req, id):
     try:
         url = Url.objects.get(short_url=id)
-        print('look here', url.original)
         return redirect(url.original)
     except Url.DoesNotExist:
         return redirect('app-index')
