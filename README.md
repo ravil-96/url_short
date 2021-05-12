@@ -4,14 +4,14 @@ A django app designed to make your urls pretty and less of a hassle!
 
 # Description & Task Requirements
 
-Users can enter a URL e.g "https://www.hello.com" and get shortened one back which redirects to their original URL. 
+Users can enter a URL e.g "https://www.hello-i-am-a-long-url.com" and get shortened one back e.g. "https://127.0.0.1:8000/UDHYX" which redirects to their original URL. 
 
 - [x] Users should be able to enter a url into an input box on your website's front page 
 - [x] Your backend will then generate a shortened path at which a User can access their url 
 - [x] You must implement Python in some capacity in this application 
 - [x] Store this shortened path and it's longer counterpart in a database 
 - [x] No login should be required to create a shortened URL 
-- [ ] If User tries to access your website with a path you have stored in your database, they should get rerouted to the URL it relates to 
+- [x] If User tries to access your website with a path you have stored in your database, they should get rerouted to the URL it relates to 
 - [x] If User tries to access your website with a path you do not have stored in your database, they should get rerouted to the homepage where they can create a new short URL 
 
 # Installation & usage
@@ -23,10 +23,7 @@ Clone this repo and navigate to the root directory of this repo.
 `pipenv install`   
 `python manage.py runserver`   
 
-It should load on http://127.0.0.1:8000/    
-
-To see our test suite:     
-`pipenv run test`     
+It should load on http://127.0.0.1:8000/        
 
 # Technologies
 django
@@ -53,3 +50,4 @@ django
 ## Challenges 
 - Deployment via Heroku with Django - static files issues
 - Redirecting link to new page without 'https://'
+- Difficulties setting up test suite!
