@@ -21,6 +21,7 @@ Users can enter a URL e.g "https://www.hello-i-am-a-long-url.com" and get shorte
 Clone this repo and navigate to the root directory of this repo.   
 `pipenv shell`   
 `pipenv install`   
+`cd url_shortener`   
 `python manage.py runserver`   
 
 It should load on http://127.0.0.1:8000/        
