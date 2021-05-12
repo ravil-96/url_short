@@ -10,9 +10,7 @@ def index(req):
     if req.method == 'POST':
         form = GenerateUrlForm(req.POST)
         if form.is_valid() :
-            all_urls = Url.objects.all()
-            all_codes = [existing_url.short_url for existing_url in all_urls]
-            all_originals = [existing_url.original for existing_url in all_urls]
+            print(Url.objects.filter(original='bananananana'))
             url = form.save(commit=False)
             if url.original[:8] == 'https://' or url.original[:7] == 'http://':
                 pass
@@ -20,11 +18,11 @@ def index(req):
                 url.original = 'https://' + url.original
             else:
                 url.original = 'https://www.' + url.original
-            if url.original in all_originals:
+            if len(Url.objects.filter(original = url.original)) > 0:
                 result = {'result': Url.objects.get(original=url.original).short_url}
                 return render (req, 'app/newurl.html', result)
             random_string = ''.join(random.choice(string.ascii_lowercase) for i in range(5))
-            while random_string in all_codes:
+            while len(Url.objects.filter(short_url=random_string)) > 0:
                 random_string = ''.join(random.choice(string.ascii_lowercase) for i in range(5))
             url.short_url = random_string
             url.save()
