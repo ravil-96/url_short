@@ -1,2 +1,1 @@
-release: python manage.py migrate
-web: gunicorn gettingstarted.wsgi
+web: gunicorn url_shortener.wsgi —log-file
