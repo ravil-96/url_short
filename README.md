@@ -2,7 +2,7 @@
 
 A django app designed to make your urls pretty and less of a hassle!
 
-# Description & Task Requirements
+## Description & Task Requirements
 
 Users can enter a URL e.g "https://www.hello-i-am-a-long-url.com" and get shortened one back e.g. "https://127.0.0.1:8000/UDHYX" which redirects to their original URL. 
 
@@ -40,7 +40,7 @@ django
 8. Finalise and complete task requirements 
 
 # Bugs 
-- [x] no bugs here!
+- [x] there may be environment issues - delete and reinstall Pipfile.lock!
 
 # Wins & Challenges 
 
